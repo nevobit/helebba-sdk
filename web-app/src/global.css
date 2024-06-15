@@ -1,0 +1,59 @@
+html {
+    font-size: 62.5%;
+}
+
+body{
+    font-size: 1.6rem;
+    background-color: var(--bg-color);
+}
+
+select{
+        position: relative;
+        display: inline-block;
+        height: 3.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(0, 0, 0, .1);
+        border-radius: .5rem;
+        overflow: hidden;
+        width: 92%;
+    font-size: 1.3rem;
+    padding: 0 .7rem;
+    -webkit-appearance: menulist-button; /* Para navegadores WebKit */
+    -moz-appearance: menulist-button; /* Para navegadores Firefox */
+    appearance: menulist-button; 
+    z-index: 0 !important;
+
+}
+
+input[type="checkbox"]{
+    height: 2rem;
+    width: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 0 !important;
+}
+
+input[type="checkbox"]:checked{
+    background-color: #007bff;
+    /* Cambiar el color del borde cuando está seleccionado */
+    border-color: #007bff;
+}
+
+input[type="checkbox"]::before {
+    content: "\2713"; 
+    position: absolute;
+    font-size: 16px;
+    color: #fff;
+    font-weight: bold;
+    visibility: hidden;
+  }
+  
+  input[type="checkbox"]:checked::before {
+    visibility: visible;
+  }

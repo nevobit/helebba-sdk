@@ -1,0 +1,30 @@
+{
+  "name": "api",
+  "scripts": {
+    "dev": "tsx watch src/server/index.ts",
+    "build": "npx tsc",
+    "clean": "rm -rf ./build",
+    "release": "release-it --ci"
+  },
+  "dependencies": {
+    "@fastify/cors": "^8.4.1",
+    "@fastify/multipart": "8.0.0",
+    "@helebba/business-logic": "workspace:*",
+    "@helebba/constant-definitions": "workspace:^",
+    "@helebba/core-modules": "workspace:^",
+    "@helebba/data-sources": "workspace:^",
+    "@helebba/entities": "workspace:^",
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.5",
+    "fastify": "^4.24.3",
+    "fastify-multer": "^2.0.3",
+    "google-auth-library": "^9.6.3",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.9.0",
+    "tslib": "2.6.1",
+    "tsx": "^4.1.1",
+    "typescript": "^5.2.2"
+  }
+}
