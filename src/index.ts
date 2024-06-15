@@ -1,5 +1,5 @@
 import { createApiClient } from "./api-client"
-import {listProducts} from "./products";
+import {getProduct, listProducts} from "./products";
 import { sign } from "jsonwebtoken";
 import { createDecipheriv,  } from 'crypto';
 const algorithm = 'aes-256-cbc';
@@ -21,7 +21,8 @@ export const helebbaClient = (secretKey: string) => {
     const apiClient = createApiClient(token, info.apiKey, info.accountId);
 
     return {
-       listProducts: async () => listProducts(apiClient)
+       listProducts: async () => listProducts(apiClient),
+       getProduct: async (productId: string) => getProduct(apiClient, productId)
     }
 }
 

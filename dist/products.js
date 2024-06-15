@@ -7,4 +7,13 @@ const listProducts = async (apiClient) => {
         throw new Error(err);
     }
 };
-export { listProducts };
+const getProduct = async (apiClient, productId) => {
+    try {
+        const { data } = await apiClient.get(`/products/${productId}`);
+        return data;
+    }
+    catch (err) {
+        throw new Error(err);
+    }
+};
+export { listProducts, getProduct };

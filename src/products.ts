@@ -7,9 +7,21 @@ const listProducts = async (apiClient: AxiosInstance) => {
     }catch(err: any){
         throw new Error(err);
     }
+}
+
+
+const getProduct = async (apiClient: AxiosInstance, productId: string) => {
+    try{
+        const { data } = await apiClient.get(`/products/${productId}`)
+        return data;
+    }catch(err: any){
+        throw new Error(err);
+    }
 
 }
 
+
 export {
-    listProducts
+    listProducts,
+    getProduct
 };
