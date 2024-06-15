@@ -5,7 +5,7 @@ export const createApiClient = (apikey: string): AxiosInstance => {
     const client = axios.create({
         baseURL: apiUrl,
         headers: {
-            "Authorization": "",
+            "api-key": apikey,
             "Content-Type": "application/json"
         }
     });

@@ -1,15 +1,27 @@
 {
-  "name": "@api/helebba",
-  "version": "1.0.0",
-  "description": "",
-  "main": "./src/index.ts",
+  "name": "helebba-sdk",
+  "version": "1.0.5",
+  "description": "SDK for interacting with Helebba API",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.m.ts",
+  "unpkg": "dist/index.umd.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npx tsc",
+    "start": "node dist/index.js"
   },
+  "files": [
+    "dist"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.6.7"
+  },
+  "devDependencies": {
+    "microbundle": "^0.15.1",
+    "typescript": "^5.4.5"
   }
 }
