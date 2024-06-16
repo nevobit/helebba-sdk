@@ -19,18 +19,43 @@ import { createClient } from 'helebba-sdk';
 
 const apiKey = 'tu-api-key-aqui';
 const helebba = createClient(apiKey);
-
-
-async function fetchProducts() {
-    try {
-        const products = await helebba.listProducts();
-        console.log('Productos:', products);
-    } catch (error) {
-        console.error('Error al obtener productos:', error.message);
-    }
-}
-
-fetchProducts();
+const products = await helebba.listProducts();
 
 ```
 
+## API
+La api expone las siguentes apis basadas en promesas
+
+- contacts
+- saleschannels
+- products
+- warehouses
+- treasury
+- expenses
+- payments
+- documents
+
+Cada api expone los sigueinte metodos:
+
+- list()
+- create({ resource })
+- get({ id })
+- update({ id, resource })
+- delete({ id })
+
+Excepto para la api de documentos:
+
+- list({ type })
+- create({ type, document })
+- get({ type, id })
+- update({ type, id, document })
+- delete({ type, id })
+- downloadPdf({ type, id })
+- pay({ type, id, payment })
+
+## Testng
+Clone el repositorio y ejecute:
+
+```
+npm test
+```
