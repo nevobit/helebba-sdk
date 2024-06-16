@@ -1,4 +1,6 @@
 import { AxiosInstance } from "axios";
-declare const listProducts: (apiClient: AxiosInstance) => Promise<any>;
-declare const getProduct: (apiClient: AxiosInstance, productId: string) => Promise<any>;
+import { Product } from "./types/Product";
+import { Result } from "./types/common";
+declare const listProducts: (apiClient: AxiosInstance) => Promise<Result<Product>>;
+declare const getProduct: (apiClient: AxiosInstance, productId: string) => Promise<Product>;
 export { listProducts, getProduct };
