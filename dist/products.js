@@ -9,7 +9,7 @@ const listProducts = async (apiClient) => {
 };
 const getProduct = async (apiClient, productId) => {
     try {
-        const { data } = await apiClient.get(`/products/${productId}`);
+        const { data } = await apiClient.get(`/products/slug/${productId}`);
         return data;
     }
     catch (err) {

@@ -14,7 +14,7 @@ const listProducts = async (apiClient: AxiosInstance): Promise<Result<Product>> 
 
 const getProduct = async (apiClient: AxiosInstance, productId: string): Promise<Product> => {
     try{
-        const { data } = await apiClient.get(`/products/${productId}`)
+        const { data } = await apiClient.get(`/products/slug/${productId}`)
         return data;
     }catch(err: any){
         throw new Error(err);
