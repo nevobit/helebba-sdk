@@ -1,3 +1,4 @@
+import { Category } from "./Category";
 import { Base } from "./common";
 
 export enum ProductStockState {
@@ -14,6 +15,7 @@ export enum ProductStockState {
     PendingReview = 10
   }
   
+  // Function to retrieve the descriptive text of the product stock state
   export function getStockStateText(state: ProductStockState): string {
     switch (state) {
       case ProductStockState.OutOfStock:
@@ -46,9 +48,12 @@ export enum ProductStockState {
 export interface ProductVariant {
     id?: string;
     barcode: string;
+    name: string;
     sku: string;
     factoryCode: string;
     price: number;
+    color: string;
+    size: string;
     cost: number;
     weight: number,
     purchasePrice: number;
@@ -69,9 +74,15 @@ export interface ProductRate {
     tax?: number;
 }
 
+export interface CustomField {
+  field: string;
+  value: string;
+}
+
 export interface Product extends Base {
     kind: string;
     name: string;
+    slug: string;
     desc: string;
     typeId: string;
     contactId: string;
@@ -94,6 +105,8 @@ export interface Product extends Base {
     tags: string[];
     images: string[];
     categoryId: string;
+    categories: Category[];
+    categoryOption: string;
     factoryCode: string;
     forSale: number;
     forPurchase: number;
@@ -101,4 +114,5 @@ export interface Product extends Base {
     expAccountId: string;
     warehouseId: string;
     variants: ProductVariant[];
+    customFields: CustomField[];
 }

@@ -2,9 +2,12 @@ import { createApiClient } from "./api-client";
 import { getProduct, listProducts } from "./products";
 import { sign } from "jsonwebtoken";
 import { createDecipheriv, } from 'crypto';
+import { getCategory, listCategories } from "./categories";
+import { createOrder, getOrder, listOrders } from "./orders";
+import { createContact, getContact, listContacts } from "./contacts";
 const algorithm = 'aes-256-cbc';
-const iv = Buffer.from("9823456789012345"); // Vector de inicialización aleatorio (debe ser único y no secreto)
-const encryptionKey = 'rKj4QCR87i2N8FWunWmJR2iZmdivdzrG'; // Deberías almacenar esto de forma segura
+const iv = Buffer.from("9823456789012345");
+const encryptionKey = 'rKj4QCR87i2N8FWunWmJR2iZmdivdzrG';
 const JWT_SECRET = "eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTcxMDE5NDAxMCwiaWF0IjoxNzEwMTk0MDEwfQ.GMyEO-pOzdCIVg26ByIYb_MNuV4G3dh2u2K0xfwjyco";
 export const helebbaClient = (secretKey) => {
     const info = getInfoFromSecretKey(secretKey);
@@ -16,7 +19,15 @@ export const helebbaClient = (secretKey) => {
     const apiClient = createApiClient(token, info.apiKey, info.accountId);
     return {
         listProducts: async () => listProducts(apiClient),
-        getProduct: async (productId) => getProduct(apiClient, productId)
+        getProduct: async (slug) => getProduct(apiClient, slug),
+        listCategories: async () => listCategories(apiClient),
+        getCategory: async (slug) => getCategory(apiClient, slug),
+        listOrders: async () => listOrders(apiClient),
+        getOrder: async (id) => getOrder(apiClient, id),
+        createOrder: async (data) => createOrder(apiClient, data),
+        listContacts: async () => listContacts(apiClient),
+        getContact: async (id) => getContact(apiClient, id),
+        createContact: async (data) => createContact(apiClient, data),
     };
 };
 const getInfoFromSecretKey = (secretKey) => {
@@ -31,3 +42,4 @@ const getInfoFromSecretKey = (secretKey) => {
         return null;
     }
 };
+export * from './types';

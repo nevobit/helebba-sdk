@@ -7,9 +7,9 @@ const listProducts = async (apiClient) => {
         throw new Error(err);
     }
 };
-const getProduct = async (apiClient, productId) => {
+const getProduct = async (apiClient, slug) => {
     try {
-        const { data } = await apiClient.get(`/products/slug/${productId}`);
+        const { data } = await apiClient.get(`/products/slug/${slug}`);
         return data;
     }
     catch (err) {

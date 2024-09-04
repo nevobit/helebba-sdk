@@ -12,6 +12,7 @@ export var ProductStockState;
     ProductStockState[ProductStockState["DefectiveStock"] = 9] = "DefectiveStock";
     ProductStockState[ProductStockState["PendingReview"] = 10] = "PendingReview";
 })(ProductStockState || (ProductStockState = {}));
+// Function to retrieve the descriptive text of the product stock state
 export function getStockStateText(state) {
     switch (state) {
         case ProductStockState.OutOfStock:

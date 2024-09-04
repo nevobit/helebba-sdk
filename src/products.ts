@@ -4,7 +4,7 @@ import { Result } from "./types/common";
 
 const listProducts = async (apiClient: AxiosInstance): Promise<Result<Product>> => {
     try{
-        const { data } = await apiClient.get("/products")
+        const { data } = await apiClient.get<Result<Product>>("/products")
         return data;
     }catch(err: any){
         throw new Error(err);
@@ -12,9 +12,9 @@ const listProducts = async (apiClient: AxiosInstance): Promise<Result<Product>> 
 }
 
 
-const getProduct = async (apiClient: AxiosInstance, productId: string): Promise<Product> => {
+const getProduct = async (apiClient: AxiosInstance, slug: string): Promise<Product> => {
     try{
-        const { data } = await apiClient.get(`/products/slug/${productId}`)
+        const { data } = await apiClient.get<Product>(`/products/slug/${slug}`)
         return data;
     }catch(err: any){
         throw new Error(err);
